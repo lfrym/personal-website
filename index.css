@@ -20,7 +20,7 @@ body {
     align-items: center; 
 }
 #spinner {
-    animation: rotate 0.3s infinite linear;
+    animation: rotate 0.45s infinite linear;
     width:50px;
     height:50px;
     border:12px solid rgb(40, 100, 212);

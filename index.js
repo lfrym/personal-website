@@ -1,67 +1,42 @@
-var width = $(window).width(); 
-window.onscroll = function(){
-if ((width >= 1000)){
-    if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-        $("#header").css("background","#fff");
-        $("#header").css("color","#000");
-        $("#header").css("box-shadow","0px 0px 20px rgba(0,0,0,0.09)");
-        $("#header").css("padding","4vh 4vw");
-        $("#navigation a").hover(function(){
-            $(this).css("border-bottom","2px solid rgb(40, 100, 212)");
-        },function(){
-            $(this).css("border-bottom","2px solid transparent");
-        });
-    }else{
-        $("#header").css("background","transparent");
-        $("#header").css("color","#fff");
-        $("#header").css("box-shadow","0px 0px 0px rgba(0,0,0,0)");
-        $("#header").css("padding","6vh 4vw");
-        $("#navigation a").hover(function(){
-            $(this).css("border-bottom","2px solid #fff");
-        },function(){
-            $(this).css("border-bottom","2px solid transparent");
-        });
-    }
-}
+let w = window.innerWidth;
+let h = window.innerHeight;
+let margin = 80;
+let xscale = 10;
+let yscale = 10;
+let yOff = 0.0;
+let cols;
+let rows;
+let entropy = 20;
+
+function setup() {
+  var canvas = createCanvas(windowWidth+margin,windowHeight+margin);
+  canvas.parent('p5Sketch')
+  cols = (w - margin * 2) / xscale;
+  rows = (h - margin * 2) / yscale;
 }
 
-function magnify(imglink){
-    $("#img_here").css("background",`url('${imglink}') center center`);
-    $("#magnify").css("display","flex");
-    $("#magnify").addClass("animated fadeIn");
-    setTimeout(function(){
-        $("#magnify").removeClass("animated fadeIn");
-    },800);
-}
+function windowResized() {
+    resizeCanvas(window.innerWidth, window.innerHeight);
+  }
 
-function closemagnify(){
-    $("#magnify").addClass("animated fadeOut");
-    setTimeout(function(){
-        $("#magnify").css("display","none");
-        $("#magnify").removeClass("animated fadeOut");
-        $("#img_here").css("background",`url('') center center`);
-    },800);
-}
 
-setTimeout(function(){
-    $("#loading").addClass("animated fadeOut");
-    setTimeout(function(){
-      $("#loading").removeClass("animated fadeOut");
-      $("#loading").css("display","none");
-    },800);
-},1650);
-
-$(document).ready(function(){
-    $("a").on('click', function(event) {
-      if (this.hash !== "") {
-        event.preventDefault();
-        var hash = this.hash;
-        $('body,html').animate({
-        scrollTop: $(hash).offset().top
-        }, 1800, function(){
-        window.location.hash = hash;
-       });
-       } 
-      });
-  });
+function draw() {
+  let xOff = 0.0;
+  background(255);
+  strokeWeight(1.5);
+  noFill();
   
+  for(let y=0; y<h; y+=yscale){
+    stroke(250-(y*2/yscale),80,50+(2*y/yscale));
+    beginShape();
+  
+    for(let x=0; x<w; x+= xscale){
+      let noiseScale = map(noise(x*xOff-(mouseX/h),yOff+(mouseY/w)), 0, 1, 0+entropy, 0+2*entropy)
+      curveVertex(x,y+noiseScale);
+      xOff += 0.00001;
+    }
+    
+    yOff += 0.0001;
+    endShape();
+  }
+}

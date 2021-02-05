@@ -4,65 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pub Trivia</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>Luke Frymire</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div id="loading">
-        <div id="spinner"></div>
-    </div>
-    <div id="magnify">
-        <h1 onclick="closemagnify()"><i class="fas fa-times"></i></h1>
-        <div id="img_here"></div>
-    </div>
-    <header id="header" class="animated slideInDown" style="animation-delay:1.8s;">
-        <table>
-            <tr>
-                <td id="logo">Luke Frymire.</td>
-                <td id="navigation">
-                    <a href="#build">Build a quiz</a>
-                    <a href="">blog</a>
-                </td>
-            </tr>
-        </table>
-    </header>
-    <table id="top_part">
-        <tr>
-            <td id="about" class="animated slideInLeft" style="animation-delay:2s;">
-                <h1>Build and share pub trivia quizes.</h1>
-                <a href="#build" class="btn_one" role="button">Get started</a><br>
-                <table>
-                    <tr>
-                        <td class="animated zoomIn" style="animation-delay:2.2s;"><a class="social"><i class="fab fa-facebook"></i></a></td>
-                        <td class="animated zoomIn" style="animation-delay:2.4s;"><a class="social"><i class="fab fa-twitter"></i></a></td>
-                        <td class="animated zoomIn" style="animation-delay:2.6s;"><a class="social"><i class="fab fa-instagram"></i></a></td>
-                        <td class="animated zoomIn" style="animation-delay:2.8s;"><a class="social"><i class="fab fa-dribbble"></i></a></td>
-                        <td class="animated zoomIn" style="animation-delay:3.0s;"><a class="social"><i class="fab fa-medium"></i></a></td>
-                    </tr>
-                </table>
-            </td>
-            <td id="rightImage" class="animated jackInTheBox" style="animation-delay:2.2s;"></td>
-        </tr>
-    </table>
-    <div id="build">
-        <h1>Build a quiz</h1>
-        <div id="photos">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1547922657-b370d1687eb1?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1549375463-8cbc18ca3f24?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1549366021-9f761d450615?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=650&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1549309019-a1d77aeae74f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1547149666-769b42053e67?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1547950515-e652d0f50b1b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80">
-            <img onclick="magnify($(this).attr('src'))" src="https://images.unsplash.com/photo-1545342084-d03fe58ea023?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80">
+    <header>
+        <div>
+            <h1>Luke Frymire</h1>
         </div>
+    </header> 
+    <div id="p5Sketch">
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.js"></script>
+        <script src="index.js" type="text/javascript"></script>
     </div>
-    <div id="footer">
-        made here <br> <a href="https://imfunniee.github.io">imfunniee</a>
-    </div>
-    <script src="index.js" type="text/javascript"></script>
-    <a href = "testzone.html"> testzone.... </a>
+    <p></p>
+    Find me on Twitter:&nbsp; <a id="thisLink" href="https://twitter.com/lukefrymire" target="_blank"><img alt="Twitter" src="assets/2021 Twitter logo - blue.png" width="20"> </a>
 </body>
 </html>

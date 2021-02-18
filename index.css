@@ -5,8 +5,10 @@ body {
     background-image: url(assets/Cathedral.gif);
     background-repeat: no-repeat;
     background-position-x: center;
-    background-position-y: 20%;
+    background-position-y: 15%;
     background-size: cover;
+    background-attachment: local;
+    background-repeat: repeat-y;
     background-color: rgb(16, 16, 16);
 }
 

@@ -1,3 +1,4 @@
+// Cathedral visuals
 let w = window.innerWidth;
 let h = window.innerHeight*0.9;
 let margin = 60;
@@ -40,3 +41,18 @@ function draw() {
     endShape();
   }
 }
+
+// Cathedral audio
+var myAudio = document.getElementById('player');
+var isPlaying = false;
+
+function togglePlay() {
+  isPlaying ? myAudio.onpause() : myAudio.play();
+};
+
+myAudio.onplaying = function() {
+  isPlaying = true;
+};
+myAudio.onpause = function() {
+  isPlaying = false;
+};

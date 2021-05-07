@@ -18,8 +18,6 @@
 	<Typewriter on:doneTyping={updateLine} txt={'Come back soon :)'} whichLine={3}/>
 	{/if}
 
-	
-
 </main>
 
 <style>

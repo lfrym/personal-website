@@ -2,6 +2,9 @@
 <html>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
     <style type="text/css">
         pre {
             white-space: pre-wrap;
@@ -10,20 +13,10 @@
             font-family: 'Menlo', 'Courier New', 'Consola';
         }
         .ascii-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            padding-top: 35px;
-            height: 0;
-            overflow: hidden;
-            border:0;
+            display: flex; min-height: 80vh; flex-direction: column; overflow: hidden;
         }
         .ascii-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
+            flex-grow: 1; border: none; width: 100%; min-height: 80vh;
         }
         body {
             background-color: black;
@@ -31,6 +24,15 @@
     </style>
 </head>
 <body>
+    <header>
+        <div>
+            <h1>Luke Frymire</h1>
+            Currently learning at UBC and online
+        </div>
+        <a href="writings.html">Writings</a>
+        <a href="testpage.html" id="testpage">Test page</a>
+    </header> 
+
     <div class="ascii-container">
         <pre id="1" style="display: none"> <iframe scrolling="no" src="assets/ascii/ascii-0.html"></iframe></pre>
         <pre id="2" style="display: none"> <iframe scrolling="no" src="assets/ascii/ascii-1.html"></iframe></pre>
@@ -45,6 +47,15 @@
         <pre id="11" style="display: none"> <iframe scrolling="no" src="assets/ascii/ascii-9.html"></iframe></pre>
     </div>
     
+    <div style="position: relative">
+        <div id="links">
+            <p style="position: fixed; bottom: 0; width:100%; text-align: left"> 
+            Email:&nbsp; <a href="mailto:luke.a.frymire@gmail.com">luke.a.frymire@gmail.com</a><br>
+            Twitter:&nbsp; <a id="thisLink" href="https://twitter.com/lukefrymire" target="_blank">@luke.frymire</a><br>
+            Zora:&nbsp; <a id="thisLink" href="https://zora.co/luke" target="_blank">@luke</a><br>
+            </p>
+        </div>
+    </div>
 </body>
 </html>
 <script>

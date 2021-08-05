@@ -5,8 +5,7 @@ let board;
 let next;
 let permUnsized;
 let perm;
-let curMouseX;
-let curMouseY;
+
 
 function preload() {
   permUnsized = loadTable('assets/namesprite.csv', 'csv', header=false);
@@ -14,7 +13,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  w = 8;
+  w = 6;
   // Calculate columns and rows
   columns = floor(width / w);
   rows = floor(height / w);
@@ -44,7 +43,7 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(0);
   generate();
   for ( let i = 0; i < columns;i++) {
     for ( let j = 0; j < rows;j++) {
@@ -55,8 +54,8 @@ function draw() {
         perm[i][j] = 2;
       }
       else {
-        if ((board[i][j] == 1)) fill(0);
-        else fill(255);
+        if ((board[i][j] == 1)) fill(255);
+        else fill(0);
         noStroke();
         rect(i * w, j * w, w-1, w-1);
       }

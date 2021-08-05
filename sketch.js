@@ -25,14 +25,14 @@ function setup() {
     perm[i] = new Array(rows);
     // Place sprite to be written in the top left corner, fill in other space with 0's to match board size
     if (i<permUnsized.getColumnCount()) {
-      for (let j = 0; j < columns; j++) {
+      for (let j = 0; j < rows; j++) {
         if (j<permUnsized.getRowCount()) {
           perm[i][j] = parseInt(permUnsized.getColumn(i)[j]);
         }
-        else perm[i][j] = 0;
+        else perm[i][j] = 2;
       }
     }
-    else perm[i].fill(0);
+    else perm[i].fill(2);
   }
   // Going to use multiple 2D arrays and swap them
   next = new Array(columns);
@@ -47,13 +47,12 @@ function draw() {
   generate();
   for ( let i = 0; i < columns;i++) {
     for ( let j = 0; j < rows;j++) {
-      if (((perm[i][j] == 1) && (board[i][j]==1)) || (perm[i][j] == 2)) {
+      if ((perm[i][j] == 1))  {
         fill(0, 88, 171);
         stroke(0, 88, 171);
         rect(i * w, j * w, w-0.5, w-0.5);
-        perm[i][j] = 2;
       }
-      else {
+      else if ((perm[i][j] == 2)) {
         if ((board[i][j] == 1)) fill(255);
         else fill(0);
         noStroke();

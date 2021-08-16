@@ -8,12 +8,14 @@ let perm;
 
 
 function preload() {
-  permUnsized = loadTable('assets/namesprite.csv', 'csv', header=false);
+  permUnsized = loadTable('assets/noname.csv', 'csv', header=false);
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  w = 6;
+  var canvas = createCanvas(windowWidth, windowHeight*0.75);
+  canvas.parent('canvasForHTML')
+  canvas;
+  w = 7;
   // Calculate columns and rows
   columns = floor(width / w);
   rows = floor(height / w);
@@ -54,8 +56,8 @@ function draw() {
       }
       else if ((perm[i][j] == 2)) {
         if ((board[i][j] == 1)) fill(255);
-        else fill(0);
-        noStroke();
+        else fill(0,0,0);
+        stroke(0,0,0);
         rect(i * w, j * w, w-1, w-1);
       }
     }
@@ -77,14 +79,14 @@ function mousePressed() {
   catch(err){}
 }
 
-// Fill board randomly
+// Fill board with zeroes (or randomly with small modification)
 function init() {
   for (let i = 0; i < columns; i++) {
     for (let j = 0; j < rows; j++) {
       // Lining the edges with 0s
       if (i == 0 || j == 0 || i == columns-1 || j == rows-1) board[i][j] = 0;
       // Filling the rest randomly
-      else board[i][j] = floor(random(2));
+      else board[i][j] = 0; //  floor(random(2));  // replace 0 with floor(random(2)) for random fill
       next[i][j] = 0;
     }
   }

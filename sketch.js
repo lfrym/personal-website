@@ -46,6 +46,8 @@ function setup() {
 
 function draw() {
   background(0);
+  cursor('assets/Cursor-64.png', 32, 32);
+  //cursor('https://i.ibb.co/JtRNWJP/Cursor-64.png', 32, 32);
   generate();
   for ( let i = 0; i < columns;i++) {
     for ( let j = 0; j < rows;j++) {
@@ -62,22 +64,54 @@ function draw() {
       }
     }
   }
-
 }
 
 // start new life when mouse is pressed
 function mousePressed() {
-  try {
-    board[((mouseX - mouseX%w) / w)][((mouseY - mouseY%w) / w)] = 1;
-    board[((mouseX - mouseX%w) / w)-1][((mouseY - mouseY%w) / w)] = 1;
-    board[((mouseX - mouseX%w) / w)-1][((mouseY - mouseY%w) / w)-1] = 1;
-    board[((mouseX - mouseX%w) / w)-1][((mouseY - mouseY%w) / w)+1] = 1;
-    board[((mouseX - mouseX%w) / w)+1][((mouseY - mouseY%w) / w)] = 1;
-    board[((mouseX - mouseX%w) / w)+1][((mouseY - mouseY%w) / w)+1] = 1;
-    board[((mouseX - mouseX%w) / w)+1][((mouseY - mouseY%w) / w)+2] = 1;
+  let shape = random([0,1,2])
+  console.log("shape is "+ shape)
+
+  // Herschell
+  if (shape==0) {
+    try {
+      board[((mouseX - mouseX%w) / w)][((mouseY - mouseY%w) / w)] = 1;
+      board[((mouseX - mouseX%w) / w)-1][((mouseY - mouseY%w) / w)] = 1;
+      board[((mouseX - mouseX%w) / w)-1][((mouseY - mouseY%w) / w)-1] = 1;
+      board[((mouseX - mouseX%w) / w)-1][((mouseY - mouseY%w) / w)+1] = 1;
+      board[((mouseX - mouseX%w) / w)+1][((mouseY - mouseY%w) / w)] = 1;
+      board[((mouseX - mouseX%w) / w)+1][((mouseY - mouseY%w) / w)+1] = 1;
+      board[((mouseX - mouseX%w) / w)+1][((mouseY - mouseY%w) / w)+2] = 1;
+    }
+    catch (err) { }
   }
-  catch(err){}
+  
+  // R-pentomino
+  else if (shape==1) {
+    try {
+      board[((mouseX - mouseX%w) / w)][((mouseY - mouseY%w) / w)] = 1;
+      board[((mouseX - mouseX%w) / w)-1][((mouseY - mouseY%w) / w)] = 1;
+      board[((mouseX - mouseX%w) / w)][((mouseY - mouseY%w) / w)-1] = 1;
+      board[((mouseX - mouseX%w) / w)][((mouseY - mouseY%w) / w)+1] = 1;
+      board[((mouseX - mouseX%w) / w)+1][((mouseY - mouseY%w) / w)+1] = 1;
+    }
+    catch (err) { }
+  }
+
+  // Multum in parvo
+  else if (shape==2) {
+    try {
+      board[((mouseX - mouseX%w) / w)][((mouseY - mouseY%w) / w)] = 1;
+      board[((mouseX - mouseX%w) / w)-1][((mouseY - mouseY%w) / w)-1] = 1;
+      board[((mouseX - mouseX%w) / w)-2][((mouseY - mouseY%w) / w)-2] = 1;
+      board[((mouseX - mouseX%w) / w)+1][((mouseY - mouseY%w) / w)+1] = 1;
+      board[((mouseX - mouseX%w) / w)+2][((mouseY - mouseY%w) / w)+1] = 1;
+      board[((mouseX - mouseX%w) / w)+3][((mouseY - mouseY%w) / w)+1] = 1;
+      board[((mouseX - mouseX%w) / w)+3][((mouseY - mouseY%w) / w)] = 1;
+    }
+    catch (err) { }
+  }
 }
+
 
 // Fill board with zeroes (or randomly with small modification)
 function init() {
